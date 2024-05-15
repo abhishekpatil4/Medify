@@ -22,6 +22,16 @@ const SearchBox = () => {
             />
             <CustomButton type={"Search"} icon={<SearchIcon />} />
         </div>
+        <div>
+            <h3 style={{textAlign:'center'}}>you may also be looking for</h3>
+            <div style={{display:'flex', justifyContent:'space-evenly'}}>
+                <div>doctor</div>
+                <div>labs</div>
+                <div>hospital</div>
+                <div>medical store</div>
+                <div>Ambulance</div>
+            </div>
+        </div>
     </Container>
 }
 

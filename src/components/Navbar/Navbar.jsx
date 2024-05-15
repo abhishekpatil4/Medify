@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static" style={{ backgroundColor: 'white', color: 'black', boxShadow:'0px 0px' }}>
+        <AppBar position="static" style={{ backgroundColor: "inherit", color: 'black', boxShadow:'0px 0px' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Hidden mdDown>
