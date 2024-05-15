@@ -1,8 +1,12 @@
 import Hero from "../components/Hero/Hero";
+import SearchBox from "../components/SearchBox/SearchBox";
 const Home = () => {
     return (
         <>
-            <Hero />
+            <div style={{position:'relative'}}>
+                <Hero />
+                <SearchBox />
+            </div>
         </>
     );
 }
