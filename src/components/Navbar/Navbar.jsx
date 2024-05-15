@@ -13,6 +13,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import medifyLogo from '../../assets/medify_logo.svg';
+import CustomButton from "../Button/CustomButton";
+import { useTheme } from "@emotion/react";
+import Hidden from '@mui/material/Hidden';
 
 const pages = [
     "Find Doctors",
@@ -21,11 +24,11 @@ const pages = [
     "Surgeries",
     "Software for Provider",
     "Facilities",
-    "My Bookings",
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
+    const theme = useTheme();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,7 +44,9 @@ function ResponsiveAppBar() {
         <AppBar position="static" style={{ backgroundColor: 'white', color: 'black' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <img src={medifyLogo} style={{height:'25px'}}  alt="Logo" />
+                    <Hidden mdDown>
+                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" />
+                    </Hidden>
                     <Typography
                         noWrap
                         component="a"
@@ -50,9 +55,10 @@ function ResponsiveAppBar() {
                             mr: 2,
                             display: { xs: "none", md: "flex" },
                             fontWeight: 700,
-                            color: "inherit",
+                            color: theme.palette.primary.main,
                             textDecoration: "none",
-                            marginLeft:'5px'
+                            marginLeft: '5px',
+                            fontSize: '18px',
                         }}
                     >
                         Medify
@@ -94,9 +100,10 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+                    <Hidden mdUp>
+                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" />
+                    </Hidden>
                     <Typography
-                        variant="h5"
                         noWrap
                         component="a"
                         href="#app-bar-with-responsive-menu"
@@ -104,25 +111,26 @@ function ResponsiveAppBar() {
                             mr: 2,
                             display: { xs: "flex", md: "none" },
                             flexGrow: 1,
-                            fontFamily: "monospace",
                             fontWeight: 700,
-                            letterSpacing: ".3rem",
-                            color: "black",
+                            color: theme.palette.primary.main,
                             textDecoration: "none",
+                            marginLeft: '5px',
+                            fontSize: '18px',
                         }}
                     >
-                        LOGO
+                        Medify
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: { xs: 'none', md: 'flex-end' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: { xs: 'none', md: 'flex-end' }, gap: { xs: 'none', md: 2, lg: 4 } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: "black", display: "block" }}
+                                sx={{ my: 2, color: "black", display: "block", textTransform: 'none' }}
                             >
                                 {page}
                             </Button>
                         ))}
+                        <CustomButton type={"My Bookings"} />
                     </Box>
                 </Toolbar>
             </Container>
