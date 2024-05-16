@@ -56,7 +56,7 @@ const Specialisations = () => {
                 }
             </Grid>
         </Box>
-        <div style={{display:'flex', justifyContent:'center', marginTop:'2rem', marginBottom:'4rem'}}>
+        <div style={{display:'flex', justifyContent:'center', marginTop:'2rem', marginBottom:'6rem'}}>
             <CustomButton type={"View All"} />
         </div>
     </Container>
