@@ -61,7 +61,7 @@ function Offers() {
                 <Slider {...settings}>
                     {
                         data && data.map((d) =>
-                            <Offer image={d.path} />
+                            <Offer key={d.id} image={d.path} />
                         )
                     }
                 </Slider>
