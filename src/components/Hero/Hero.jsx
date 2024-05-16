@@ -19,7 +19,7 @@ const Hero = () => {
                 <CustomButton type={"Find Centers"}/>
             </div>
             <div>
-                <img src={HeroImage} alt="image of two doctors" style={{ maxWidth: "643px", maxHeight: '735.94px' }} />
+                <img src={HeroImage} alt="image of two doctors" style={{ width:'90vw' ,maxWidth: "643px", maxHeight: '735.94px' }} />
             </div>
     </Container>
 }

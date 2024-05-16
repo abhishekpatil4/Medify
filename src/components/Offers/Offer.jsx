@@ -1,5 +1,5 @@
 const Offer = ({ image }) => {
-    return <div>
+    return <div style={{maxWidth:'399px'}}>
         <img src={image} alt="" />
     </div>
 }

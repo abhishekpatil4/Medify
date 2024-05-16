@@ -37,23 +37,24 @@ const data = [
 ]
 
 const Offers = () => {
-    return <div style={{ position: 'absolute', transform: 'translate(0, -10%)', padding: '10rem 5rem 5rem 5rem', backgroundColor: 'white', maxWidth: '90vw', zIndex: -1 }}>
+    return <div style={{transform: 'translate(0, -10%)', padding: '10rem 5rem 5rem 5rem', backgroundColor: 'white'}}>
             <Swiper
-            modules={[Navigation, Pagination, Scrollbar]}
-                spaceBetween={50}
+                modules={[Navigation, Pagination, Scrollbar]}
+                // spaceBetween={10} 
                 // navigation
                 pagination
-                slidesPerView={3}
+                slidesPerView={"auto"}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >
+
                 {
                     data && data.map((d) =>
-                        <SwiperSlide key={d.id}><Offer image={d.path} /></SwiperSlide>
+                        <SwiperSlide key={d.id} style={{ maxWidth: '399px' }}><Offer image={d.path}/></SwiperSlide>
                     )
                 }
             </Swiper>
-    </div>
+        </div>
 }
 
 export default Offers;
