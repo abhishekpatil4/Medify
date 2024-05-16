@@ -52,14 +52,21 @@ function MedicalSpecialists() {
         initialSlide: 1,
         responsive: [
             {
-                breakpoint: 1350,
+                breakpoint: 1650,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 1280,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 }
             },
             {
-                breakpoint: 960,
+                breakpoint: 900,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
