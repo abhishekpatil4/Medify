@@ -37,7 +37,7 @@ function Offers() {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        initialSlide: 0,
+        initialSlide: 1,
         responsive: [
             {
                 breakpoint: 1350,
