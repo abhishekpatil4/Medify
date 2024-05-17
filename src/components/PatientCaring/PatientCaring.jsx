@@ -7,7 +7,7 @@ import Icon from "../../../src/assets/Healthcare Consultation Clip Path Group.sv
 
 const PatientCaring = () => {
     const theme = useTheme();
-    return <div style={{ display: 'flex', flexDirection: 'row' }}>
+    return <div style={{ display: 'flex', flexDirection: 'row', paddingBottom:'5rem' }}>
         <div style={{ position: 'relative', width: '519px', height: '486px', left: '138px', borderRadius: '8px 0px 0px 0px' }}>
             <img src={photo1} alt="doctor speaking to a patient" style={{ objectFit: 'cover', position: 'relative', border: "5px solid white", width: "332px", height: "275px", left: '305px', top: '0px' }} />
             <img src={photo2} alt="doctor speaking to a patient" style={{ objectFit: 'cover', position: 'relative', border: "5px solid white", width: '332px', height: '275px', left: '201px', top: "-75px" }} />
