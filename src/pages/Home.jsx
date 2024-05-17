@@ -5,6 +5,7 @@ import Specialisations from "../components/Specialisations/Specialisations";
 import MedicalSpecialists from "../components/MedicalSpecialist/MedicalSpecialists";
 import LatestNews from "../components/LatestNews/LatestNews";
 import PatientCaring from "../components/PatientCaring/PatientCaring";
+import Stats from "../components/Stats/Stats";
 const Home = () => {
     return (
         <>
@@ -16,6 +17,7 @@ const Home = () => {
                 <MedicalSpecialists />
                 <PatientCaring />
                 <LatestNews />
+                <Stats />
             </div>
         </>
     );
