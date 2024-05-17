@@ -7,6 +7,8 @@ import LatestNews from "../components/LatestNews/LatestNews";
 import PatientCaring from "../components/PatientCaring/PatientCaring";
 import Stats from "../components/Stats/Stats";
 import FAQ from "../components/FAQ/FAQ";
+import DownloadApp from "../components/DownloadApp/DownloadApp";
+
 const Home = () => {
     return (
         <>
@@ -20,6 +22,7 @@ const Home = () => {
                 <LatestNews />
                 <Stats />
                 <FAQ />
+                <DownloadApp />
             </div>
         </>
     );

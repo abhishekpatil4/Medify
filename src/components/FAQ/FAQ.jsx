@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material";
 import doctorPatientTalking from "../../assets/doctorPatientTalk.png"
 const FAQ = () => {
     const theme = useTheme();
-    return <div style={{ backgroundColor: 'white' }}>
+    return <div style={{ backgroundColor: 'white', paddingBottom:'3rem' }}>
         <Container maxWidth="xl" style={{ paddingTop: '2rem' }}>
             <Typography style={{ textAlign: 'center', fontSize: '16px', fontWeight: 600, lineHeight: '27px', color: theme.palette.primary.main }}>
                 Get Your Answer
