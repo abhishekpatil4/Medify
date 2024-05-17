@@ -10,7 +10,7 @@ const DownloadApp = () => {
     return <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         <div>
             <div style={{ width: '927px', height: '433px' }}>
-                <img style={{ objectPosition: '30% 60%', objectFit: 'cover', width: '100%' }} src={mockup} alt="" />
+                {/* <img style={{ objectPosition: '30% 60%', objectFit: 'cover', width: '100%' }} src={mockup} alt="" /> */}
             </div>
         </div>
         <div>
