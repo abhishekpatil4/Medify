@@ -49,7 +49,7 @@ const links2 = [
 
 const Footer = () => {
     const theme = useTheme();
-    return <div style={{ backgroundColor: theme.palette.secondary.main, padding: "3rem 0rem 2rem 0rem" }}>
+    return <div style={{ backgroundColor: theme.palette.secondary.main, padding: "3rem 0rem 2rem 0rem", position:'relative', bottom:'0px', zIndex:1}}>
         <Container maxWidth="lg">
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={12} lg={4} sx={{marginBottom:{xs:'2rem', lg:0}}}>
