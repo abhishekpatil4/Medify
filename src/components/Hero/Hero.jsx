@@ -5,8 +5,8 @@ import {Container} from "@mui/material"
 import CustomButton from "../Button/CustomButton"
 const Hero = () => {
     const theme = useTheme();
-    return <Container maxWidth="xl" sx={{display:'flex', justifyContent:'space-between', flexWrap:'wrap'}}>
-            <div style={{ marginTop: '7rem' }}>
+    return <Container maxWidth="xl" sx={{display:'flex', height:"832px", overflow:'hidden', position:"relative", justifyContent:'space-between', flexWrap:'wrap'}}>
+            <div style={{ marginTop: '7rem' }}> 
                 <Typography style={{ fontSize: '31px', fontWeight: '500' }}>
                     Skip the travel! Find Online
                 </Typography>
