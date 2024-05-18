@@ -15,7 +15,7 @@ const DownloadApp = () => {
             </div>
             <div style={{ position: 'relative', left: "200px", top: "-485px", zIndex: -1, width: '302px', height: '427px' }}>
                 <img src={mobileBorder} alt="" width={"100%"} />
-                <img src={mockup} style={{ width: '98%', position: 'relative', top: '-612px', zIndex: -1 }} width={"100%"} alt="mobile app mockup" />
+                <img src={mockup} style={{ left:'3px', width: '98%', position: 'relative', top: '-612px', zIndex: -1 }} width={"100%"} alt="mobile app mockup" />
             </div>
             {/* <div style={{ width: '927px', height: '433px' }}> */}
             {/* <img style={{ objectPosition: '30% 60%', objectFit: 'cover', width: '100%' }} src={mockup} alt="" /> */}
