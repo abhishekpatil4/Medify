@@ -18,11 +18,11 @@ const Home = () => {
                 <Offers />
                 <Specialisations />
                 <MedicalSpecialists />
-                <PatientCaring />
+                {/* <PatientCaring /> */}
                 <LatestNews />
                 <Stats />
                 <FAQ />
-                <DownloadApp />
+                {/* <DownloadApp /> */}
             </div>
         </>
     );

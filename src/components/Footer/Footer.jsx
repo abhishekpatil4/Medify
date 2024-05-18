@@ -8,8 +8,9 @@ import facebook from "../../assets/SocialMediaIcons/facebook.svg"
 import pinterest from "../../assets/SocialMediaIcons/pinterest.svg"
 import twitter from "../../assets/SocialMediaIcons/twitter.svg"
 import youtube from "../../assets/SocialMediaIcons/youtube.svg"
-import rightIcon from "../../assets/RightIcon.svg"
 import Divider from '@mui/material/Divider';
+import DropDownItem from "./DropDownItem";
+import Box from "@mui/material/Box";
 
 const links1 = [
     {
@@ -48,11 +49,11 @@ const links2 = [
 
 const Footer = () => {
     const theme = useTheme();
-    return <div style={{ backgroundColor: theme.palette.secondary.main, padding: "3rem 0rem" }}>
+    return <div style={{ backgroundColor: theme.palette.secondary.main, padding: "3rem 0rem 2rem 0rem" }}>
         <Container maxWidth="lg">
             <Grid container spacing={2}>
-                <Grid item xs={6} md={4}>
-                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', gap: 120 }}>
+                <Grid item xs={12} sm={12} md={12} lg={4} sx={{marginBottom:{xs:'2rem', lg:0}}}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: { lg: 'flex-start', md: 'center', sm: 'center', xs: 'center' }, gap:{md: 12, xs:6} }}>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <img src={medifyLogo} style={{ height: '30px' }} alt="Logo" />
                             <Typography
@@ -70,57 +71,42 @@ const Footer = () => {
                                 Medify
                             </Typography>
                         </div>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: "center", gap: 20 }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: 20 }}>
                             <SocialMediaIcon icon={facebook} />
                             <SocialMediaIcon icon={twitter} />
                             <SocialMediaIcon icon={youtube} />
                             <SocialMediaIcon icon={pinterest} />
                         </div>
-                    </div>
+                    </Box>
                 </Grid>
-                <Grid item xs={6} md={8}>
-                    <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', gap: 100 }}>
+                <Grid item xs={12} sm={12} md={12} lg={8}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', gap: 0, flexDirection: { lg: 'row', md: 'row', sm: 'column', xs: 'column' } }}>
                         <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', gap: 8 }}>
                             {
                                 links1 && links1.map((d, idx) =>
-                                    <div key={idx} style={{
-                                        display: 'flex', alignItems: 'center', gap: 8
-                                    }}>
-                                        <img src={rightIcon} alt="" />
-                                        <span style={{ fontWeight: 400, fontSize: '16px', color: 'white', lineHeight: '28px' }}>{d.name}</span>
-                                    </div>
+                                    <DropDownItem key={idx} name={d.name} />
                                 )
                             }
                         </div>
                         <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', gap: 8 }}>
                             {
                                 links2 && links2.map((d, idx) =>
-                                    <div key={idx} style={{
-                                        display: 'flex', alignItems: 'center', gap: 8
-                                    }}>
-                                        <img src={rightIcon} alt="" />
-                                        <span style={{ fontWeight: 400, fontSize: '16px', color: 'white', lineHeight: '28px' }}>{d.name}</span>
-                                    </div>
+                                    <DropDownItem key={idx} name={d.name} />
                                 )
                             }
                         </div>
                         <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', gap: 8 }}>
                             {
                                 links1 && links1.map((d, idx) =>
-                                    <div key={idx} style={{
-                                        display: 'flex', alignItems: 'center', gap: 8
-                                    }}>
-                                        <img src={rightIcon} alt="" />
-                                        <span style={{ fontWeight: 400, fontSize: '16px', color: 'white', lineHeight: '28px' }}>{d.name}</span>
-                                    </div>
+                                    <DropDownItem key={idx} name={d.name} />
                                 )
                             }
                         </div>
-                    </div>
+                    </Box>
                 </Grid>
             </Grid>
-            <Divider style={{backgroundColor:'gray', margin:"2rem 0rem"}} orientation="horizontal" variant="middle" flexItem />
-            <Typography style={{ color: "white", fontSize: '16px', fontWeight: 400, lineHeight: "28px" }}>
+            <Divider style={{ backgroundColor: '#315081', margin: "4rem 0rem 2rem 0rem" }} orientation="horizontal" variant="middle" flexItem />
+            <Typography sx={{ textAlign: { xs: 'center', sm: 'center' }, color: "white", fontSize: '16px', fontWeight: 400, lineHeight: "28px" }}>
                 Copyright ©2023 Surya Nursing Home.com. All Rights Reserved
             </Typography>
         </Container>
