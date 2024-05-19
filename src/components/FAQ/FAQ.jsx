@@ -24,7 +24,7 @@ const FAQ = () => {
                         <img width={"500px"} height={"480px"} style={{ objectFit: 'cover' }} src={doctorPatientTalking} alt="Doctor talking to a patient" />
                     </div>
                     {/* left: '-110px', top: '-198px', */}
-                    <div style={{ display: 'flex', position: 'absolute' ,height: '104px',top:'300px', left:'-110px', width: '240px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex:1, backgroundColor:'white', borderRadius: '8px', boxShadow: "0px 15px 25px 0px #0000000F" }}>
+                    <div style={{ display: 'flex', position: 'absolute' ,height: '104px',top:'300px', left:'-110px', width: '240px', justifyContent: 'center', alignItems: 'center', zIndex:1, backgroundColor:'white', borderRadius: '8px', boxShadow: "0px 15px 25px 0px #0000000F" }}>
                         <img src={Smiley} alt="Smiley face" width="44px" height="44px" style={{ backgroundColor: 'white', padding: '0rem 1rem 0rem 1rem' }} />
                         <div>
                             <Typography style={{ fontSize: '24px', lineHeight: '33px', fontWeight: 600, color: theme.palette.secondary.main }}>84k+</Typography>
