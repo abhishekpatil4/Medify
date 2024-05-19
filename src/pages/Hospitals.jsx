@@ -46,13 +46,17 @@ const Hospitals = () => {
                         <Typography sx={{ fontSize: '24px', fontWeight: 500, lineHeight: '36px' }}>
                             {hospitals ? hospitals.length : "loading..."} medical centers available in {city}
                         </Typography>
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap:3 }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 3 }}>
                             <img src={tickMark} alt="" />
                             <Typography sx={{ fontSize: '16px', fontWeight: 400, lineHeight: '24px', color: '#787887' }}>
                                 Book appointments with minimum wait-time & verified doctor details
                             </Typography>
                         </Box>
-                        <HospitalCard />
+                        {
+                            hospitals && hospitals.map((hospital) =>
+                                <HospitalCard name={hospital["Hospital Name"]} state={state} city={city} />
+                            )
+                        }
                     </Grid>
                     <Grid item xs={12} md={3}>
                         hi
