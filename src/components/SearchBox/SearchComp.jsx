@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
 
-const SearchComp = () => {
+const SearchComp = ({padding='3rem'}) => {
     const [states, setStates] = useState();
     const [selectedState, setSelectedState] = useState("");
     const [cities, setCities] = useState();
@@ -51,7 +51,7 @@ const SearchComp = () => {
         }
         getStates();
     }, []);
-    return <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
+    return <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: padding, alignItems: 'center', flexWrap: 'wrap' }}>
         <Box sx={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             <FormControl sx={{ minWidth: '20rem', borderRadius: '8px', backgroundColor: '#FAFBFE', border: '1px solid #F0F0F0' }}>
                 <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>State</InputLabel>
