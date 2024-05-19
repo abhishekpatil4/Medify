@@ -31,7 +31,7 @@ const Hospitals = () => {
         getHospitals();
     }, [searched])
     return <Box>
-        <Navbar bgColor={"white"}  isHospitalPage={true}/>
+        <Navbar bgColor={"white"} isHospitalPage={true} />
         <Box sx={{ position: 'relative' }}>
             <Box sx={{ background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)', height: '110px', borderRadius: '0px 0px 16px 16px' }}></Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
@@ -54,13 +54,13 @@ const Hospitals = () => {
                             </Typography>
                         </Box>
                         {
-                            hospitals && hospitals.map((hospital) =>
-                                <HospitalCard name={hospital["Hospital Name"]} state={state} city={city} />
+                            hospitals && hospitals.map((hospital, idx) =>
+                                <HospitalCard key={idx} name={hospital["Hospital Name"]} state={state} city={city} />
                             )
                         }
                     </Grid>
                     <Grid item xs={12} md={3}>
-                        <Box sx={{ width: '363px', height: '268px', marginTop:'75px' }}>
+                        <Box sx={{ width: '363px', height: '268px', marginTop: '75px' }}>
                             <img src={ad} alt="advertisement" width={"100%"} style={{ borderRadius: '15px' }} />
                         </Box>
                     </Grid>

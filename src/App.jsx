@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer'
 import DownloadApp from "./components/DownloadApp/DownloadApp";
 import { Route, Routes } from 'react-router-dom'
 import Hospitals from './pages/Hospitals'
+import FAQ from './components/FAQ/FAQ';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/hospitals/:state/:city" element={<Hospitals />} />
       </Routes>
+      <FAQ />
       <DownloadApp />
       <Footer />
     </>
