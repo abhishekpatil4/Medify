@@ -13,6 +13,7 @@ import medifyLogo from '../../assets/medify_logo.svg';
 import CustomButton from "../Button/CustomButton";
 import { useTheme } from "@emotion/react";
 import Hidden from '@mui/material/Hidden';
+import { useNavigate } from "react-router-dom"
 
 const pages = [
     "Find Doctors",
@@ -25,9 +26,14 @@ const pages = [
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
+    const navigate = useNavigate();
     const theme = useTheme();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const handleNavigate = () => {
+        navigate("/");
+    }
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -38,16 +44,16 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static" style={{ backgroundColor: "inherit", color: 'black', boxShadow:'0px 0px' }}>
+        <AppBar position="static" style={{ backgroundColor: "inherit", color: 'black', boxShadow: '0px 0px' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Hidden mdDown>
-                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" />
+                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" onClick={handleNavigate} />
                     </Hidden>
                     <Typography
+                        onClick={handleNavigate}
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
                             display: { xs: "none", md: "flex" },
@@ -60,7 +66,6 @@ function ResponsiveAppBar() {
                     >
                         Medify
                     </Typography>
-
                     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                         <IconButton
                             size="large"

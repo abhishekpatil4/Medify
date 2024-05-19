@@ -13,13 +13,14 @@ import Box from "@mui/material/Box";
 import Categories from "./Categories";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 const SearchBox = () => {
     const [states, setStates] = useState();
     const [selectedState, setSelectedState] = useState("");
     const [cities, setCities] = useState();
     const [selectedCity, setSelectedCity] = useState("");
-
+    const navigate = useNavigate();
     const getCities = async (state) => {
         const url = `https://meddata-backend.onrender.com/cities/${state}`;
         try {
@@ -40,7 +41,8 @@ const SearchBox = () => {
     }
 
     const handleSearch = () => {
-        
+        console.log("search");
+        navigate(`/hospitals/${selectedState}/${selectedCity}`);
     }
 
     useEffect(() => {
@@ -93,7 +95,7 @@ const SearchBox = () => {
                     </Select>
                 </FormControl>
             </Box>
-            <CustomButton type={"Search"} icon={<SearchIcon sx={{ height: '300px', width: '25px' }} />} height="3.7rem" width="12rem" style={{ fontSize: '1.2rem' }} />
+            <CustomButton fun={handleSearch} type={"Search"} icon={<SearchIcon sx={{ height: '300px', width: '25px' }} />}  height="3.7rem" width="12rem" style={{ fontSize: '1.2rem' }} />
         </div>
         <Categories />
     </Container>

@@ -15,7 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/hospitals" element={<Hospitals />} />
+        <Route path="/hospitals/:state/:city" element={<Hospitals />} />
       </Routes>
       <DownloadApp />
       <Footer />
