@@ -41,7 +41,6 @@ const SearchBox = () => {
     }
 
     const handleSearch = () => {
-        console.log("search");
         navigate(`/hospitals/${selectedState}/${selectedCity}`);
     }
 
