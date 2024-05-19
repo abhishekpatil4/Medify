@@ -31,7 +31,7 @@ const Hospitals = () => {
         getHospitals();
     }, [searched])
     return <Box>
-        <Navbar bgColor={"white"} />
+        <Navbar bgColor={"white"}  isHospitalPage={true}/>
         <Box sx={{ position: 'relative' }}>
             <Box sx={{ background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)', height: '110px', borderRadius: '0px 0px 16px 16px' }}></Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>

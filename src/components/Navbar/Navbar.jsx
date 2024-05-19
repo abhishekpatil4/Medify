@@ -25,7 +25,7 @@ const pages = [
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar({bgColor='inherit'}) {
+function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
     const navigate = useNavigate();
     const theme = useTheme();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -108,7 +108,6 @@ function ResponsiveAppBar({bgColor='inherit'}) {
                     <Typography
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },
@@ -122,8 +121,16 @@ function ResponsiveAppBar({bgColor='inherit'}) {
                     >
                         Medify
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: { xs: 'none', md: 'flex-end' }, gap: { xs: 'none', md: 2, lg: 4 } }}>
-                        {pages.map((page) => (
+                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: { xs: 'none', md: 'flex-end' }, gap: { xs: 'none', md: 2, lg: 4 }, alignItems: 'center' }}>
+                        <Box sx={{ borderBottom: isHospitalPage && `4px solid ${theme.palette.primary.main}` }}>
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: isHospitalPage ? theme.palette.primary.main : "black", display: "block", textTransform: 'none' }}
+                            >
+                                Find Doctors
+                            </Button>
+                        </Box>
+                        {pages.slice(1).map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
