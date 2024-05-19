@@ -6,15 +6,34 @@ import { Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import TimeBox from "./TimeBox";
 import { useSnackbar } from 'notistack'
+import DayBox from "./DayBox";
 
 const afternoonData = ["12:00PM", "12:30PM", "01:30PM", "02:00PM", "02:30PM"];
 const eveningData = ["06:00PM", "06:30PM", "07:00PM", "07:30PM"];
 
-function SwiperDates() {
+function SwiperDates({ name, state, city }) {
     const { enqueueSnackbar } = useSnackbar()
     const [selectedDay, setSelectedDay] = useState(0);
     const [selectedTime, setSelectedTime] = useState();
     const theme = useTheme();
+
+    const formatDate = (index) => {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const today = new Date();
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + index);
+
+        const day = futureDate.getDate();
+        const monthName = monthNames[futureDate.getMonth()];
+        const year = futureDate.getFullYear();
+
+        return `${day} ${monthName} ${year}`;
+    };
+
+
     const [data, setData] = useState([
         {
             day: "Today",
@@ -56,21 +75,31 @@ function SwiperDates() {
         setSelectedTime(time.data);
         if (localStorage.getItem("booking")) {
             let data = JSON.parse(localStorage.getItem("booking"));
-            data.day = selectedDay;
-            data.time = time.data;
-            localStorage.setItem("booking", JSON.stringify(data));
-
-        } else {
-            let obj = {
-                day: selectedDay,
+            let newObj = {
+                name: name,
+                state: state,
+                city: city,
+                day: formatDate(selectedDay),
                 time: time.data
             }
+            data.push(newObj);
+            localStorage.setItem("booking", JSON.stringify(data));
+        } else {
+            let obj = [{
+                name: name,
+                state: state,
+                city: city,
+                day: formatDate(selectedDay),
+                time: time.data
+            }]
             localStorage.setItem("booking", JSON.stringify(obj));
         }
-        enqueueSnackbar("Booking successful!",  { variant: 'success', anchorOrigin: {
-            vertical: 'bottom',
-            horizontal: 'center'
-          }})
+        enqueueSnackbar("Booking successful!", {
+            variant: 'success', anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'center'
+            }
+        })
     }
 
     const settings = {

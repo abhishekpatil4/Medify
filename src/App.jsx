@@ -8,6 +8,7 @@ import DownloadApp from "./components/DownloadApp/DownloadApp";
 import { Route, Routes } from 'react-router-dom'
 import Hospitals from './pages/Hospitals'
 import FAQ from './components/FAQ/FAQ';
+import Bookings from './pages/Bookings';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hospitals/:state/:city" element={<Hospitals />} />
+        <Route path="/bookings" element={<Bookings />} />
       </Routes>
       <FAQ />
       <DownloadApp />
