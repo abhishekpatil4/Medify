@@ -66,7 +66,6 @@ const SearchComp = ({padding='3rem'}) => {
                         states && states.map((state, idx) =>
                             <MenuItem key={idx} value={state}>{state}</MenuItem>
                         )
-
                     }
                 </Select>
             </FormControl>
