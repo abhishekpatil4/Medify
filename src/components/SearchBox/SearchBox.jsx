@@ -11,9 +11,50 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from "@mui/material/Box";
 import Categories from "./Categories";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const SearchBox = () => {
+    const [states, setStates] = useState();
+    const [selectedState, setSelectedState] = useState("");
+    const [cities, setCities] = useState();
+    const [selectedCity, setSelectedCity] = useState("");
+
+    const getCities = async (state) => {
+        const url = `https://meddata-backend.onrender.com/cities/${state}`;
+        try {
+            const res = await axios.get(url);
+            setCities(res.data);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const handleStateChange = (e) => {
+        setSelectedState(e.target.value);
+        getCities(e.target.value);
+    }
+
+    const handleCityChange = (e) => {
+        setSelectedCity(e.target.value);
+    }
+
+    const handleSearch = () => {
+        
+    }
+
+    useEffect(() => {
+        const getStates = async () => {
+            const url = "https://meddata-backend.onrender.com/states";
+            try {
+                const res = await axios.get(url);
+                setStates(res.data);
+            } catch (error) {
+                console.log(error.response);
+            }
+        }
+        getStates();
+    }, []);
     const theme = useTheme();
     return <Container maxWidth="xl" style={{ paddingBottom: '3rem', backgroundColor: 'white', boxShadow: '2px 2px 20px rgba(0, 0, 0, 0.1)', borderRadius: '15px', position: 'absolute', left: '50%', transform: 'translate(-50%, -90%)', zIndex: 1 }}>
         <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -23,13 +64,16 @@ const SearchBox = () => {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        // value={age}
+                        value={selectedState}
                         label="Age"
-                    // onChange={handleChange}
+                        onChange={handleStateChange}
                     >
-                        <MenuItem value={10}>Karnataka</MenuItem>
-                        <MenuItem value={20}>Hyderabad</MenuItem>
-                        <MenuItem value={30}>Goa</MenuItem>
+                        {
+                            states && states.map((state, idx) =>
+                                <MenuItem key={idx} value={state}>{state}</MenuItem>
+                            )
+
+                        }
                     </Select>
                 </FormControl>
                 <FormControl sx={{ minWidth: '20rem', borderRadius: '8px', backgroundColor: '#FAFBFE' }}>
@@ -37,13 +81,15 @@ const SearchBox = () => {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        // value={age}
+                        value={selectedCity}
                         label="Age"
-                    // onChange={handleChange}
+                        onChange={handleCityChange}
                     >
-                        <MenuItem value={10}>Dharwad</MenuItem>
-                        <MenuItem value={20}>Belgavi</MenuItem>
-                        <MenuItem value={30}>Hubli</MenuItem>
+                        {
+                            cities && cities.map((city, idx) =>
+                                <MenuItem key={idx} value={city}>{city}</MenuItem>
+                            )
+                        }
                     </Select>
                 </FormControl>
             </Box>
