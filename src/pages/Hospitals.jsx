@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom"
+import Navbar from '../components/Navbar/Navbar'
 
 const Hospitals = () => {
     const [hospitals, setHospitals] = useState();
@@ -18,8 +19,7 @@ const Hospitals = () => {
         getHospitals();
     }, [])
     return <div>
-        <h1>state: {state}</h1>
-        <h1>city: {city}</h1>
+        <Navbar bgColor={"white"}/>
     </div>
 }
 

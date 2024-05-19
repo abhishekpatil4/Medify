@@ -7,11 +7,13 @@ import LatestNews from "../components/LatestNews/LatestNews";
 import PatientCaring from "../components/PatientCaring/PatientCaring";
 import Stats from "../components/Stats/Stats";
 import FAQ from "../components/FAQ/FAQ";
+import Navbar from '../components/Navbar/Navbar'
 
 const Home = () => {
     return (
         <>
-            <div style={{position:'relative'}}>
+            <div style={{ position: 'relative' }}>
+                <Navbar />
                 <Hero />
                 <SearchBox />
                 <Offers />
