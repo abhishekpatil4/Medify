@@ -5,9 +5,15 @@ import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import TimeBox from "./TimeBox";
+import { useSnackbar } from 'notistack'
+
+const afternoonData = ["12:00PM", "12:30PM", "01:30PM", "02:00PM", "02:30PM"];
+const eveningData = ["06:00PM", "06:30PM", "07:00PM", "07:30PM"];
 
 function SwiperDates() {
+    const { enqueueSnackbar } = useSnackbar()
     const [selectedDay, setSelectedDay] = useState(0);
+    const [selectedTime, setSelectedTime] = useState();
     const theme = useTheme();
     const [data, setData] = useState([
         {
@@ -45,6 +51,28 @@ function SwiperDates() {
 
         setData(newData);
     }, []);
+
+    const handleSelectTime = (time) => {
+        setSelectedTime(time.data);
+        if (localStorage.getItem("booking")) {
+            let data = JSON.parse(localStorage.getItem("booking"));
+            data.day = selectedDay;
+            data.time = time.data;
+            localStorage.setItem("booking", JSON.stringify(data));
+
+        } else {
+            let obj = {
+                day: selectedDay,
+                time: time.data
+            }
+            localStorage.setItem("booking", JSON.stringify(obj));
+        }
+        enqueueSnackbar("Booking successful!",  { variant: 'success', anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'center'
+          }})
+    }
+
     const settings = {
         dots: false,
         infinite: false,
@@ -76,26 +104,33 @@ function SwiperDates() {
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                         Morning
                     </Typography>
-                    <TimeBox time={"11:30AM"} />
+                    <Box onClick={() => handleSelectTime({ data: "11:30AM" })} sx={{ cursor: 'pointer' }}>
+                        <TimeBox time={"11:30AM"} />
+                    </Box>
                 </Box>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                         Afternoon
                     </Typography>
-                    <TimeBox time={"12:00PM"} />
-                    <TimeBox time={"12:30PM"} />
-                    <TimeBox time={"01:30PM"} />
-                    <TimeBox time={"02:00PM"} />
-                    <TimeBox time={"02:30PM"} />
+                    {
+                        afternoonData && afternoonData.map((data, idx) =>
+                            <Box onClick={() => handleSelectTime({ data })} key={idx} sx={{ cursor: 'pointer' }}>
+                                <TimeBox time={data} />
+                            </Box>
+                        )
+                    }
                 </Box>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                         Evening
                     </Typography>
-                    <TimeBox time={"06:00PM"} />
-                    <TimeBox time={"06:30PM"} />
-                    <TimeBox time={"07:00PM"} />
-                    <TimeBox time={"07:30PM"} />
+                    {
+                        eveningData && eveningData.map((data, idx) =>
+                            <Box onClick={() => handleSelectTime({ data })} key={idx} sx={{ cursor: 'pointer' }}>
+                                <TimeBox time={data} />
+                            </Box>
+                        )
+                    }
                 </Box>
             </Box>
         </Box>
