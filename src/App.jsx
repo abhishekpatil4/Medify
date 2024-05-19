@@ -5,13 +5,18 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import DownloadApp from "./components/DownloadApp/DownloadApp";
+import { Route, Routes } from 'react-router-dom'
+import Hospitals from './pages/Hospitals'
 
 function App() {
   return (
     <>
       <Tagline />
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/hospitals" element={<Hospitals />} />
+      </Routes>
       <DownloadApp />
       <Footer />
     </>
