@@ -7,7 +7,7 @@ import CustomButton from "../Button/CustomButton";
 import thumbsUp from "../../assets/HospitalPage/thumbsup.svg"
 const HospitalCard = ({ name, state, city }) => {
     const theme = useTheme();
-    return <Box sx={{ backgroundColor: 'white', borderRadius: '15px', width: '775px', height: '268px', display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '10px', marginTop: '1rem' }}>
+    return <Box sx={{ backgroundColor: 'white', borderRadius: '15px', width: '755px', height: '268px', display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '10px', marginTop: '1rem' }}>
         <img src={Hospitalicon} alt="" height={"140px"} width={"140px"} style={{ marginTop: '1rem' }} />
         <Box>
             <Box sx={{ width: '310px', height: '220px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexDirection: 'column', gap: 1, borderBottom: "1px dashed #E8E8F0" }}>

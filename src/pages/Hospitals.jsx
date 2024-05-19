@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import { Container } from "@mui/material";
 import tickMark from "../assets/HospitalPage/tickMark.svg";
 import HospitalCard from "../components/HospitalCard/HospitalCard";
+import ad from "../assets/HospitalPage/ad.png"
 
 const Hospitals = () => {
     const [hospitals, setHospitals] = useState();
@@ -39,9 +40,9 @@ const Hospitals = () => {
                 </Box>
             </Box>
         </Box>
-        <Container>
+        <Container maxWidth="lg">
             <Box sx={{ flexGrow: 1, paddingTop: '5rem' }}>
-                <Grid container spacing={2}>
+                <Grid container>
                     <Grid item xs={12} md={9}>
                         <Typography sx={{ fontSize: '24px', fontWeight: 500, lineHeight: '36px' }}>
                             {hospitals ? hospitals.length : "loading..."} medical centers available in {city}
@@ -59,7 +60,9 @@ const Hospitals = () => {
                         }
                     </Grid>
                     <Grid item xs={12} md={3}>
-                        hi
+                        <Box sx={{ width: '363px', height: '268px', marginTop:'75px' }}>
+                            <img src={ad} alt="advertisement" width={"100%"} style={{ borderRadius: '15px' }} />
+                        </Box>
                     </Grid>
                 </Grid>
             </Box>
