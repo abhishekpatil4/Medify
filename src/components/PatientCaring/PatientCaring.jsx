@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
 import CustomListItem from "./CustomListItem";
 import Message from "./MessageBox";
+import Box from "@mui/material/Box";
 
 const PatientCaring = () => {
     const theme = useTheme();
@@ -13,10 +14,10 @@ const PatientCaring = () => {
             <div style={{ position: 'relative' }}>
                 <Message />
             </div>
-            <div style={{ position: "relative" }}>
+            <Box sx={{ position: "relative" }}>
                 <img src={photo1} alt="doctor speaking to a patient" style={{ objectFit: 'cover', position: 'absolute', border: "5px solid white", width: "332px", height: "275px", left: '250px', top: '0px' }} />
                 <img src={photo2} alt="doctor speaking to a patient" style={{ objectFit: 'cover', position: 'absolute', border: "5px solid white", width: '332px', height: '275px', left: '150px', top: "220px" }} />
-            </div>
+            </Box>
         </div>
         <div style={{ textAlign: 'left' }}>
             <Typography style={{ fontSize: '16px', fontWeight: 600, lineHeight: '27px', color: theme.palette.primary.main }}>

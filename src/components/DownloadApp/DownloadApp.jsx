@@ -7,11 +7,12 @@ import CustomButton from "../Button/CustomButton";
 import Arrow from "../../assets/DownloadApp/arrow.svg"
 import playStore from "../../assets/DownloadApp/google_play.png"
 import appStore from "../../assets/DownloadApp/apple_store.png"
+import PhoneNumberInput from "../PhoneNumberInput/PhoneNumberInput";
 
 const DownloadApp = () => {
     const theme = useTheme();
-    return <div style={{height:'550px', position:'relative', overflow:'hidden'}}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', marginTop: '6rem', height:"100%", width:'100%' }}>
+    return <div style={{ height: '550px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', marginTop: '6rem', height: "100%", width: '100%' }}>
             <div>
                 <div style={{ position: 'relative', width: '302px', height: '427px', zIndex: 1 }}>
                     <img src={mobileBorder} alt="" width={"100%"} />
@@ -30,12 +31,13 @@ const DownloadApp = () => {
                 <Typography style={{ fontSize: '16px', fontWeight: 500, lineHeight: '24px', color: '#414146', margin: '1rem 0rem 0.5rem 0rem' }}>
                     Get the link to download the app
                 </Typography>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap:5 }}>
+                    {/* <div style={{ display: 'flex', alignItems: 'center' }}>
                         <div style={{ borderTopLeftRadius: '8px', borderBottomLeftRadius: '8px', backgroundcolor: 'red' }}>+91</div>
                         <TextField label="Enter phone number" style={{ backgroundColor: 'white', border: '1px solid #F0F0F0', minWidth: '20rem' }} />
-                    </div>
-                    <CustomButton type={"Send SMS"} />
+                    </div> */}
+                    <PhoneNumberInput />
+                    <CustomButton type={"Send SMS"} height={"56px"}/>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 20, marginTop: '2rem' }}>
                     <img src={playStore} alt="playstore" />
