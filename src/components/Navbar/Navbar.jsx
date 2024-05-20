@@ -35,6 +35,10 @@ function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
         navigate("/");
     }
 
+    const handleMyBookings = () => {
+        navigate("/bookings");
+    }
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -139,7 +143,7 @@ function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
                                 {page}
                             </Button>
                         ))}
-                        <CustomButton type={"My Bookings"} />
+                        <CustomButton type={"My Bookings"} fun={handleMyBookings}/>
                     </Box>
                 </Toolbar>
             </Container>
