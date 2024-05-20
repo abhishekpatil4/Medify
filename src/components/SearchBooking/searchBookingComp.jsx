@@ -12,15 +12,15 @@ import { useNavigate } from "react-router-dom"
 import TextField from '@mui/material/TextField';
 
 
-const SearchBookingComp = ({ padding = '0.2rem' }) => {
-    const [states, setStates] = useState();
+const SearchBookingComp = ({ padding = '0.2rem', searchContent, setSearchContent }) => {
+    // const [states, setStates] = useState();
     const handleSearch = () => {
         console.log("search");
     }
     return <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: padding, alignItems: 'center', flexWrap: 'wrap' }}>
         <Box sx={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
             <FormControl sx={{ minWidth: '30rem', borderRadius: '8px', backgroundColor: '#FAFBFE' }}>
-                <TextField id="outlined-basic" label="Search By Hospital" variant="outlined" sx={{ color: '#ABB6C7', border: '1px solid #F0F0F0' }} />
+                <TextField value={searchContent} onChange={(e)=>setSearchContent(e.target.value)} id="outlined-basic" label="Search By Hospital" variant="outlined" sx={{ color: '#ABB6C7', border: '1px solid #F0F0F0' }} />
             </FormControl>
         </Box>
         <CustomButton fun={handleSearch} type={"Search"} icon={<SearchIcon sx={{ height: '300px', width: '25px' }} />} height="3.7rem" width="12rem" style={{ fontSize: '1.2rem' }} />

@@ -10,15 +10,28 @@ import { useState, useEffect } from "react";
 
 const Bookings = () => {
     const [bookings, setBookings] = useState();
+    const [searchContent, setSearchContent] = useState("");
     useEffect(() => {
         const getBookingsData = async () => {
             if (localStorage.getItem("booking")) {
                 setBookings(JSON.parse(localStorage.getItem("booking")));
+                console.log("bookings: ", JSON.parse(localStorage.getItem("booking")));
             }
         }
         getBookingsData();
     }, []);
-    return <Box sx={{marginBottom:'2rem'}}>
+
+    let filteredBookings = bookings?.filter(booking =>
+        booking.name.toLowerCase().includes(searchContent.toLowerCase())
+    );
+    useEffect(() => {
+        console.log("searchContent", searchContent);
+        filteredBookings = bookings?.filter(booking =>
+            booking.name.toLowerCase().includes(searchContent.toLowerCase())
+        );
+    }, [searchContent])
+
+    return <Box sx={{ marginBottom: '2rem' }}>
         <Navbar bgColor={"white"} isHospitalPage={true} />
         <Box sx={{ position: 'relative' }}>
             <Box sx={{ background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)', height: '110px', borderRadius: '0px 0px 16px 16px', display: 'flex', justifyContent: "fles-start", alignItems: 'center' }}>
@@ -27,8 +40,8 @@ const Bookings = () => {
                 </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <Box onClick={() => setSearched(true)} sx={{ position: 'absolute', backgroundColor: "white", borderRadius: '15px', boxShadow: '6px 6px 35px 0px #1028511C', width: '800px', left: '40vw' }}>
-                    <SearchBookingComp />
+                <Box sx={{ position: 'absolute', backgroundColor: "white", borderRadius: '15px', boxShadow: '6px 6px 35px 0px #1028511C', width: '800px', left: '40vw' }}>
+                    <SearchBookingComp searchContent={searchContent} setSearchContent={setSearchContent} />
                 </Box>
             </Box>
         </Box>
@@ -37,9 +50,11 @@ const Bookings = () => {
                 <Grid container>
                     <Grid item xs={12} md={9}>
                         {
-                            bookings && bookings.map((booking, idx) =>
-                                <HospitalCard key={idx} name={booking.name} state={booking.state} city={booking.city} time={booking.time} day={booking.day} booked={true}/>
+                            filteredBookings ? filteredBookings.map((booking, idx) =>
+                                <HospitalCard key={idx} name={booking.name} state={booking.state} city={booking.city} time={booking.time} day={booking.day} booked={true} />
                             )
+                                :
+                                <div>No bookings</div>
                         }
                     </Grid>
                     <Grid item xs={12} md={3}>
