@@ -52,7 +52,7 @@ function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Hidden mdDown>
-                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" onClick={handleNavigate} />
+                        <img src={medifyLogo} style={{ height: '25px', cursor: 'pointer' }} alt="Logo" onClick={handleNavigate} />
                     </Hidden>
                     <Typography
                         onClick={handleNavigate}
@@ -66,6 +66,7 @@ function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
                             textDecoration: "none",
                             marginLeft: '5px',
                             fontSize: '18px',
+                            cursor: 'pointer'
                         }}
                     >
                         Medify
@@ -143,7 +144,7 @@ function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
                                 {page}
                             </Button>
                         ))}
-                        <CustomButton type={"My Bookings"} fun={handleMyBookings}/>
+                        <CustomButton type={"My Bookings"} fun={handleMyBookings} />
                     </Box>
                 </Toolbar>
             </Container>
