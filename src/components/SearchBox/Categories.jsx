@@ -6,6 +6,7 @@ import CapsuleIcon from "../../assets/categoryIcons/Capsule.svg"
 import DrugstoreIcon from "../../assets/categoryIcons/Drugstore.svg"
 import HospitalIcon from "../../assets/categoryIcons/Hospital.svg"
 import AmbulanceIcon from "../../assets/categoryIcons/Ambulance.svg"
+
 const Categories = () => {
     const theme = useTheme();
     return <div>

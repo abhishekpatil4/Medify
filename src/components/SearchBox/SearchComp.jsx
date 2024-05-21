@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
 
-const SearchComp = ({padding='3rem'}) => {
+const SearchComp = ({ padding = '3rem' }) => {
     const [states, setStates] = useState();
     const [selectedState, setSelectedState] = useState("");
     const [cities, setCities] = useState();
@@ -51,9 +51,9 @@ const SearchComp = ({padding='3rem'}) => {
         }
         getStates();
     }, []);
-    return <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: padding, alignItems: 'center', flexWrap: 'wrap' }}>
-        <Box sx={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-            <FormControl sx={{ minWidth: '20rem', borderRadius: '8px', backgroundColor: '#FAFBFE', border: '1px solid #F0F0F0' }}>
+    return <Box sx={{ display: 'flex', justifyContent: 'space-evenly', padding: padding, alignItems: 'center', flexWrap: 'wrap' }}>
+        <Box sx={{ display: "flex", justifyContent: { xs: 'center', md: 'space-evenly' }, alignItems: 'center', gap: { xs: 2, lg: 10 }, flexWrap: 'wrap', flexDirection: { md: 'column', lg: 'row' } }}>
+            <FormControl sx={{ minWidth: { xs: '14rem', md: '20rem' }, borderRadius: '8px', backgroundColor: '#FAFBFE', border: '1px solid #F0F0F0' }}>
                 <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>State</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
@@ -69,7 +69,7 @@ const SearchComp = ({padding='3rem'}) => {
                     }
                 </Select>
             </FormControl>
-            <FormControl sx={{ minWidth: '20rem', borderRadius: '8px', backgroundColor: '#FAFBFE' }}>
+            <FormControl sx={{ minWidth: { xs: '14rem', md: '20rem' }, borderRadius: '8px', backgroundColor: '#FAFBFE' }}>
                 <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>City</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
@@ -85,9 +85,10 @@ const SearchComp = ({padding='3rem'}) => {
                     }
                 </Select>
             </FormControl>
+            <CustomButton fun={handleSearch} type={"Search"} icon={<SearchIcon sx={{ height: '300px', width: '25px' }} />} height="3.7rem" sx={{ fontSize: '1.2rem', minWidth: { sm: '20rem', lg: '12rem' } }} />
         </Box>
-        <CustomButton fun={handleSearch} type={"Search"} icon={<SearchIcon sx={{ height: '300px', width: '25px' }} />} height="3.7rem" width="12rem" style={{ fontSize: '1.2rem' }} />
-    </div>
+        {/* <CustomButton fun={handleSearch} type={"Search"} icon={<SearchIcon sx={{ height: '300px', width: '25px' }} />} height="3.7rem" width="12rem" style={{ fontSize: '1.2rem' }} /> */}
+    </Box>
 }
 
 export default SearchComp;

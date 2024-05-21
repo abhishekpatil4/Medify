@@ -9,7 +9,7 @@ import HandBelowHeart from "../../../src/assets/StatsIcons/handBelowheart.svg"
 
 const Stats = () => {
     const theme = useTheme();
-    return <Container maxWidth="xl" style={{ display: 'flex', alignItems: 'center', justifyContent:"space-evenly", padding:"3rem 0rem 5rem 0rem", flexWrap:'wrap' }}>
+    return <Container maxWidth="xl" sx={{textAlign:{xs:"center", lg:'left'}, display: 'flex', alignItems: 'center', justifyContent:"space-evenly", padding:"3rem 0.5rem 5rem 0.5rem", flexWrap:'wrap' }}>
         <div>
             <Typography style={{ color: theme.palette.primary.main, fontSize: '17px', fontWeight: 600, lineHeight: '18px' }}>
                 CARING FOR THE HEALTH OF YOU AND YOUR FAMILY.

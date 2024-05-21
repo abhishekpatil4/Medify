@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Offer from "./Offer";
 import OfferImage1 from "../../assets/Healthcare Consultation-1.png"
 import OfferImage2 from "../../assets/Healthcare Consultation-2.png"
+import { Box } from "@mui/material";
 
 const data = [
     {
@@ -56,8 +57,8 @@ function Offers() {
         ]
     };
     return (
-        <div style={{ transform: 'translate(0, -10%)', padding: '10rem 5rem 5rem 5rem', backgroundColor: 'white' }}>
-            <div className="slider-container">
+        <Box sx={{ transform: 'translate(0, -10%)', padding: { xs: '46rem 0rem 5rem 0rem', sm: '32rem 5rem 5rem 5rem', md: '10rem 5rem 5rem 5rem' }, backgroundColor: 'white', }}>
+            <Box className="slider-container" sx={{ maxWidth: { xs: '92vw', md: '100vw' } }}>
                 <Slider {...settings}>
                     {
                         data && data.map((d) =>
@@ -65,8 +66,8 @@ function Offers() {
                         )
                     }
                 </Slider>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 }
 
