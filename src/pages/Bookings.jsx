@@ -39,8 +39,8 @@ const Bookings = () => {
                     My Bookings
                 </Typography>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <Box sx={{ position: 'absolute', backgroundColor: "white", borderRadius: '15px', boxShadow: '6px 6px 35px 0px #1028511C', width: '800px', left: '40vw' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', marginTop:{xs:'4.5rem', md:0} }}>
+                <Box sx={{ position: 'absolute', backgroundColor: "white", borderRadius: '15px', boxShadow: '6px 6px 35px 0px #1028511C', width: "100vw", left: { xs: '0px', md: '40vw' } }}>
                     <SearchBookingComp searchContent={searchContent} setSearchContent={setSearchContent} />
                 </Box>
             </Box>

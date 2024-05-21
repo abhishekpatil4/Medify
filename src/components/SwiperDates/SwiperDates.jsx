@@ -110,8 +110,8 @@ function SwiperDates({ name, state, city }) {
         slidesToScroll: 3
     };
     return (
-        <Box sx={{ backgroundColor: 'white', maxWidth: '775px', marginBottom: '5rem', padding: "1rem 0rem" }}>
-            <Box className="slider-container" sx={{ maxWidth: '680px', margin: '0rem 3rem' }}>
+        <Box sx={{ backgroundColor: 'white', maxWidth: '775px', width: { sm: '720px', md: '775px' }, marginBottom: '5rem', padding: "1rem 0rem" }}>
+            <Box className="slider-container" sx={{ maxWidth: '680px', margin: {xs:'0rem 0.5rem', md:'0rem 3rem'} }}>
                 <Slider {...settings}>
                     {
                         data.length >= 7 ?
@@ -129,7 +129,7 @@ function SwiperDates({ name, state, city }) {
                 </Slider>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 5, flexDirection: "column", padding: '1.5rem' }}>
-                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
+                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: { xs: 2, md: 5 }, flexDirection: { xs: "column", md: "row" }, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                         Morning
                     </Typography>
@@ -137,7 +137,7 @@ function SwiperDates({ name, state, city }) {
                         <TimeBox time={"11:30AM"} />
                     </Box>
                 </Box>
-                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
+                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: { xs: "column", md: "row" }, gap: { xs: 2, md: 5 }, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                         Afternoon
                     </Typography>
@@ -149,7 +149,7 @@ function SwiperDates({ name, state, city }) {
                         )
                     }
                 </Box>
-                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: 5, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
+                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', gap: { xs: 2, md: 5 }, flexDirection: { xs: "column", md: "row" }, borderBottom: '1px solid #F0F0F5', padding: '0.5rem 0rem' }}>
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                         Evening
                     </Typography>

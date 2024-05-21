@@ -10,7 +10,7 @@ import { useState } from "react";
 import TimeBox from "../SwiperDates/TimeBox";
 import DayBox from "../SwiperDates/DayBox";
 
-const HospitalCard = ({ name, state, city, time, booked = false, day }) => {
+const   HospitalCard = ({ name, state, city, time, booked = false, day }) => {
     const [bookingClicked, setBookingClicked] = useState(false);
     const handleBookingClick = () => {
         if (bookingClicked) {
@@ -21,14 +21,14 @@ const HospitalCard = ({ name, state, city, time, booked = false, day }) => {
     }
     const theme = useTheme();
     return <>
-        <Box sx={{ backgroundColor: 'white', borderRadius: '15px 15px 0px 0px', width: '755px', height: '268px', display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '10px', marginTop: '1rem' }}>
+        <Box sx={{ backgroundColor: 'white', borderRadius: bookingClicked ? '15px 15px 0px 0px': '15px 15px 15px 15px', width: { sm: '700px', md: '755px' }, minHeight: '268px', display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', padding: '10px', marginTop: '1rem', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center', md: 'left' } }}>
             <img src={Hospitalicon} alt="" height={"140px"} width={"140px"} style={{ marginTop: '1rem' }} />
             <Box>
-                <Box sx={{ width: '310px', height: '220px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexDirection: 'column', gap: 1, borderBottom: !bookingClicked && "1px dashed #E8E8F0" }}>
+                <Box sx={{ width: '310px', height: '220px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexDirection: 'column', gap: 1, borderBottom: !bookingClicked && "1px dashed #E8E8F0", textAlign: { xs: 'center', md: 'left' } }}>
                     <Typography sx={{ color: theme.palette.primary.main, fontSize: '20px', fontWeight: 600, lineHeight: '28px' }}>
                         {name}
                     </Typography>
-                    <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 700, lineHeight: '20px' }}>
+                    <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 700, lineHeight: '20px'}}>
                         {city}, {state}
                     </Typography>
                     <Typography sx={{ color: '#414146', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
@@ -61,7 +61,7 @@ const HospitalCard = ({ name, state, city, time, booked = false, day }) => {
                         <DayBox day={day} />
                     </Box>
             }
-        </Box>
+        </Box >
         {
             bookingClicked && <SwiperDates name={name} state={state} city={city} />
         }
