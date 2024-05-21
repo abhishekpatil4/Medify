@@ -33,7 +33,7 @@ const FAQ = () => {
                         </div>
                     </Box>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', gap: { xs: 0, lg: 50 } }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', gap: { xs: 0, lg: 5 } }}>
                     <div style={{ gap: 20, maxWidth: '464px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontSize: { xs: '14px', lg: '18px' }, fontWeight: 600, lineHeight: '30px', color: theme.palette.secondary.main }}>
                             Why choose our medical for your family?
@@ -58,7 +58,7 @@ const FAQ = () => {
                         </Typography>
                         <span style={{ color: theme.palette.primary.main, fontWeight: 600, fontSize: '25px' }}>+</span>
                     </div>
-                </div>
+                </Box>
             </Box>
         </Container>
     </div>

@@ -105,13 +105,17 @@ function ResponsiveAppBar({ bgColor = 'inherit', isHospitalPage = false }) {
                                     <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
+                            <MenuItem onClick={handleMyBookings}>
+                                <Typography textAlign="center">My Bookings</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                     <Hidden mdUp>
-                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" />
+                        <img src={medifyLogo} style={{ height: '25px' }} alt="Logo" onClick={handleNavigate} />
                     </Hidden>
                     <Typography
                         noWrap
+                        onClick={handleNavigate}
                         component="a"
                         sx={{
                             mr: 2,
