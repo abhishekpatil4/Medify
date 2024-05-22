@@ -10,6 +10,7 @@ import { Container } from "@mui/material";
 import tickMark from "../assets/HospitalPage/tickMark.svg";
 import HospitalCard from "../components/HospitalCard/HospitalCard";
 import ad from "../assets/HospitalPage/ad.png"
+import FAQ from "../components/FAQ/FAQ";
 
 const Hospitals = () => {
     const [hospitals, setHospitals] = useState();
@@ -30,20 +31,20 @@ const Hospitals = () => {
         setSearched(false);
         getHospitals();
     }, [searched])
-    return <Box>
+    return <> <Box>
         <Navbar bgColor={"white"} isHospitalPage={true} />
         <Box sx={{ position: 'relative' }}>
             <Box sx={{ background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)', height: '110px', borderRadius: '0px 0px 16px 16px' }}></Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <Box onClick={() => setSearched(true)} sx={{ position: 'absolute', backgroundColor: "white", borderRadius: '15px', boxShadow: '6px 6px 35px 0px #1028511C', minWidth: {xs:'100vw', lg:'1200px', xl:'1300px'}, marginTop:{xs:'10rem', md:0} }}>
-                    <SearchComp padding={"0.6rem"}/>
+                <Box onClick={() => setSearched(true)} sx={{ position: 'absolute', backgroundColor: "white", borderRadius: '15px', boxShadow: '6px 6px 35px 0px #1028511C', minWidth: { xs: '100vw', lg: '1200px', xl: '1300px' }, marginTop: { xs: '10rem', md: 0 } }}>
+                    <SearchComp padding={"0.6rem"} />
                 </Box>
             </Box>
         </Box>
         <Container maxWidth="lg">
             <Box sx={{ flexGrow: 1, paddingTop: '5rem' }}>
                 <Grid container>
-                    <Grid item xs={12} md={9} sx={{paddingBottom:'2rem', marginTop:{xs:"10rem", md:0}}}>
+                    <Grid item xs={12} md={9} sx={{ paddingBottom: '2rem', marginTop: { xs: "10rem", md: 0 } }}>
                         <Typography sx={{ fontSize: '24px', fontWeight: 500, lineHeight: '36px' }}>
                             {hospitals ? hospitals.length : "loading..."} medical centers available in {city}
                         </Typography>
@@ -68,6 +69,8 @@ const Hospitals = () => {
             </Box>
         </Container>
     </Box>
+        <FAQ />
+    </>
 }
 
 export default Hospitals;

@@ -20,7 +20,6 @@ function App() {
         <Route path="/hospitals/:state/:city" element={<Hospitals />} />
         <Route path="/bookings" element={<Bookings />} />
       </Routes>
-      <FAQ />
       <DownloadApp />
       <Footer />
     </>

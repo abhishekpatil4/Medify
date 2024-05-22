@@ -9,6 +9,8 @@ import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
+import { InputAdornment } from "@mui/material";
+
 
 const SearchComp = ({ padding = '3rem' }) => {
     const [states, setStates] = useState();
@@ -54,14 +56,20 @@ const SearchComp = ({ padding = '3rem' }) => {
     return <Box sx={{ display: 'flex', justifyContent: 'space-evenly', padding: { xs: '1rem', lg: padding }, alignItems: 'center', flexWrap: 'wrap' }}>
         <Box sx={{ display: "flex", justifyContent: { xs: 'center', md: 'space-evenly' }, alignItems: 'center', gap: { xs: 2, lg: 10 }, flexWrap: 'wrap', flexDirection: { xs: 'column', sm: 'row' } }}>
             <FormControl sx={{ minWidth: { xs: '14rem', lg: '14rem', xl: '20rem' }, borderRadius: '8px', backgroundColor: '#FAFBFE', border: '1px solid #F0F0F0' }}>
-                <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>State</InputLabel>
+                {/* <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>State</InputLabel> */}
                 <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    displayEmpty
                     value={selectedState}
-                    label="Age"
                     onChange={handleStateChange}
+                    startAdornment={
+                        <InputAdornment position="start">
+                            <SearchIcon />
+                        </InputAdornment>
+                    }
                 >
+                    <MenuItem disabled value="" selected>
+                        State
+                    </MenuItem>
                     {
                         states && states.map((state, idx) =>
                             <MenuItem key={idx} value={state}>{state}</MenuItem>
@@ -70,14 +78,20 @@ const SearchComp = ({ padding = '3rem' }) => {
                 </Select>
             </FormControl>
             <FormControl sx={{ minWidth: { xs: '14rem', lg: '14rem', xl: '20rem' }, borderRadius: '8px', backgroundColor: '#FAFBFE' }}>
-                <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>City</InputLabel>
+                {/* <InputLabel id="demo-simple-select-label" sx={{ color: '#ABB6C7' }}>City</InputLabel> */}
                 <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    displayEmpty
                     value={selectedCity}
-                    label="Age"
                     onChange={handleCityChange}
+                    startAdornment={
+                        <InputAdornment position="start">
+                            <SearchIcon />
+                        </InputAdornment>
+                    }
                 >
+                    <MenuItem disabled value="" selected>
+                        City
+                    </MenuItem>
                     {
                         cities && cities.map((city, idx) =>
                             <MenuItem key={idx} value={city}>{city}</MenuItem>
