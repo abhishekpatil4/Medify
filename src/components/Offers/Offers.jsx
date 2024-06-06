@@ -39,6 +39,18 @@ function Offers() {
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 1,
+        dotsClass: "slick-dots slick-thumb",
+        arrows: false,
+        appendDots: dots => <ul>{dots}</ul>,
+        customPaging: i => (
+            <div className="ft-slick__dots--custom">
+                <Box sx={{ height: '20px', width: '20px', border: '1px solid blue', borderRadius: '100%', display: 'flex', justifyContent: 'center', alignItems: "center" }}>
+                    <Box sx={{ height: '10px', width: "10px", backgroundColor: 'blue', borderRadius: '100%' }}>
+
+                    </Box>
+                </Box>
+            </div>
+        ),
         responsive: [
             {
                 breakpoint: 1350,
